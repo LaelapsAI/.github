@@ -1,0 +1,28 @@
+# Schema-checks the org-default issue forms: a broken form breaks issue
+# creation in every repository that uses them.
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  issue-forms:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Issue forms
+        run: >-
+          pipx run --spec check-jsonschema==0.39.0 check-jsonschema
+          --builtin-schema vendor.github-issue-forms
+          $(find .github/ISSUE_TEMPLATE -name '*.yml' ! -name config.yml)
+      - name: Issue template config
+        run: >-
+          pipx run --spec check-jsonschema==0.39.0 check-jsonschema
+          --builtin-schema vendor.github-issue-config
+          .github/ISSUE_TEMPLATE/config.yml
