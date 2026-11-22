@@ -1,0 +1,61 @@
+name: Bug
+description: Something that is broken or behaving incorrectly
+title: "[Bug] "
+type: bug
+projects: ["LaelapsAI/9"]
+body:
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      placeholder: The robot showed as offline in the console after about 2 minutes, while it was still patrolling.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened?
+      placeholder: The robot should stay online while it is patrolling.
+    validations:
+      required: true
+
+  - type: textarea
+    id: where_when
+    attributes:
+      label: Where and when?
+      description: Site, robot or camera, and roughly when it happened (date, time, timezone).
+      placeholder: Customer site, robot laelaps-01, 2026-10-20 around 22:15 CET
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: How bad is it?
+      options:
+        - Blocks operations or a customer
+        - Annoying, but there is a workaround
+        - Cosmetic
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen again
+      description: Only if you know. Keep it to the minimum steps.
+      placeholder: |
+        1. Open the robot page
+        2. Wait 2-3 minutes
+        3. Status changes to offline
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or video
+      description: Drag files in here, or link the event in the console.
+    validations:
+      required: false
