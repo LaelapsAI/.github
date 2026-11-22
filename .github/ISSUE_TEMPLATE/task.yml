@@ -1,0 +1,47 @@
+name: Task
+description: A specific piece of work that isn't a new capability or a bug fix
+title: "[Task] "
+type: task
+projects: ["LaelapsAI/9"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Set the target date and links in the issue's fields after creating the issue.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What needs doing?
+      placeholder: Set up a console environment for the new customer site.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why, and for whom?
+      placeholder: Customer pilot starts on 2026-11-15.
+    validations:
+      required: false
+
+  - type: textarea
+    id: done_when
+    attributes:
+      label: Done when
+      description: What the finished result looks like.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: merge_gate
+    attributes:
+      label: Merge gate
+      description: The tests that prove it works. The pull request doesn't merge until every box is ticked. Engineering can fill this in.
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: false

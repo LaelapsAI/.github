@@ -1,0 +1,79 @@
+name: Feature
+description: Something a customer or operator needs to be able to do that they can't today
+title: "[Feature] "
+type: feature
+projects: ["LaelapsAI/9"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the need, not the solution. No technology here: how we build it goes in the pull request.
+        Set the Notion request page and links in the issue's fields after creating the issue.
+
+  - type: input
+    id: need_to
+    attributes:
+      label: They need to be able to
+      description: One sentence, the outcome for the user.
+      placeholder: See and act on alarms from their phone while away from the control desk.
+    validations:
+      required: true
+
+  - type: textarea
+    id: their_words
+    attributes:
+      label: In their own words
+      description: Quote the customer or operator as closely as you can. Don't rephrase it into a solution.
+      placeholder: |
+        > "When we patrol at night it would be great to have..."
+    validations:
+      required: true
+
+  - type: input
+    id: who_asked
+    attributes:
+      label: Who asked, and where
+      placeholder: Customer site visit 2026-09-10 (<link to notes>)
+    validations:
+      required: false
+
+  - type: textarea
+    id: done_when
+    attributes:
+      label: Done when
+      description: What the complete deliverable looks like. One line each, each one checkable. Copy numbers exactly as the user said them.
+      placeholder: |
+        - [ ] A user granted mobile access can ...
+        - [ ] That user sees ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: merge_gate
+    attributes:
+      label: Merge gate
+      description: The tests that prove it works. The pull request doesn't merge until every box is ticked. Engineering can fill this in.
+      placeholder: |
+        - [ ] Tested on a real phone at a customer site
+        - [ ] An alarm reaches the phone within 5 seconds
+    validations:
+      required: false
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Customer, site, security or regulatory limits that shape the solution.
+      placeholder: |
+        - Must also work on air-gapped sites
+        - Only site admins may ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: not_known
+    attributes:
+      label: Not known yet
+      description: Open questions about what the customer actually needs.
+    validations:
+      required: false
